@@ -1,0 +1,17 @@
+# virtual environments
+venv/
+.venv/
+
+# python bytecode
+__pycache__/
+*.pyc
+
+# pytest
+.pytest_cache/
+
+# playwright
+.playwright/
+test-results/
+
+# MacOS
+.DS_Store
