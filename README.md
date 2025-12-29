@@ -1,5 +1,4 @@
 # Playwright + Pytest Starter (Python)
-
 Small starter project to demonstrate:
 - pytest fixtures via `conftest.py`
 - Playwright UI assertions

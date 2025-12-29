@@ -8,3 +8,11 @@ def page():
         page = browser.new_page()
         yield page
         browser.close()
+        
+@pytest.fixture
+def api_request_context():
+    with sync_playwright() as p:
+        request_context = p.request.new_context(
+            base_url="https://jsonplaceholder.typicode.com"
+        )
+        yield request_context
