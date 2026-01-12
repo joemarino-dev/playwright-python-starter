@@ -9,6 +9,7 @@ Demonstrates comprehensive test automation using Playwright with Python and pyte
 - pytest fixtures for test setup/teardown
 - Clean test organization by test type
 - Assertion best practices
+- End to end test that hits the UI, verifies success, then checks the database for proper commit
 
 ## Setup
 
