@@ -1,3 +1,4 @@
+import os
 import pytest
 from playwright.sync_api import sync_playwright
 
@@ -5,7 +6,8 @@ from playwright.sync_api import sync_playwright
 def page():
     """Fixture for UI testing with Playwright browser automation"""
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
+        is_ci = os.getenv('CI') == 'true'
+        browser = p.chromium.launch(headless=is_ci)
         page = browser.new_page()
         yield page
         browser.close()
