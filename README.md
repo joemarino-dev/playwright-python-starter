@@ -1,27 +1,29 @@
-# Playwright Test Automation - UI & API
+# Playwright Python Starter
 
-Demonstrates comprehensive test automation using Playwright with Python and pytest for both UI and API testing.
+![Tests](https://github.com/joemarino-dev/playwright-python-starter/actions/workflows/tests.yml/badge.svg)
 
-## What This Shows
+Comprehensive test automation framework demonstrating UI, API, and integration testing with Python, Playwright, and pytest. Features automated CI/CD pipeline with GitHub Actions.
 
-- **UI Testing**: Browser automation with semantic locators
+## What This Demonstrates
+
+- **UI Testing**: Browser automation with Playwright and semantic locators
 - **API Testing**: REST API validation using Playwright's request context
-- pytest fixtures for test setup/teardown
-- Clean test organization by test type
-- Assertion best practices
-- End to end test that hits the UI, verifies success, then checks the database for proper commit
+- **Integration Testing**: End-to-end tests combining UI, API, and database validation
+- **Property-Based Testing**: Validating business rules that must always hold true
+- **CI/CD Pipeline**: Automated test execution via GitHub Actions on every commit
+- **Clean Architecture**: Modular test organization with reusable pytest fixtures
 
 ## Setup
 
 Create and activate a virtual environment:
 
-**On Mac/Linux:**
+**Mac/Linux:**
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
 
-**On Windows:**
+**Windows:**
 ```bash
 python -m venv venv
 venv\Scripts\activate
@@ -34,45 +36,34 @@ playwright install
 ```
 
 ## Run Tests
-
-**Run all tests:**
 ```bash
-pytest
-```
-
-**Run only UI tests:**
-```bash
-pytest tests/ui/
-```
-
-**Run only API tests:**
-```bash
-pytest tests/api/
+pytest                  # Run all tests
+pytest tests/ui/        # Run only UI tests
+pytest tests/api/       # Run only API tests
+pytest tests/integration/  # Run only integration tests
 ```
 
 ## Test Coverage
 
-### UI Tests (tests/ui/)
-- **test_title.py**: Validates page title
-- **test_heading.py**: Validates heading text using semantic locators
-- **test_body.py**: Validates body content
+### UI Tests (`tests/ui/`)
+- Page title validation
+- Heading text validation using semantic locators
+- Body content validation
 
-### API Tests (tests/api/)
-- **test_get_user.py**: Validates GET request and user data structure
-- **test_get_single_post.py**: Validates single resource retrieval
-- **test_create_post.py**: Validates POST request and response structure
+### API Tests (`tests/api/`)
+- GET request validation with data structure assertions
+- Single resource retrieval
+- POST request validation
 
-### Integration Test
-`tests/integration/test_transfer_e2e.py` - End-to-end test combining:
-- UI automation (Playwright browser interaction)
-- API validation (Flask transfer endpoint)
-- Database verification (balance updates via SQL)
-- Property-based validation (money conservation)
+### Integration Test (`tests/integration/test_transfer_e2e.py`)
+End-to-end banking transfer test combining:
+- UI interaction (Playwright form submission)
+- API processing (Flask transfer endpoint)
+- Database verification (SQL balance validation)
+- Property validation (conservation of money across accounts)
 
-Demonstrates full-stack testing: user interaction → API → database → verification
+Demonstrates full-stack testing workflow: UI → API → Database → Verification
 
-## Key Features
+## CI/CD
 
-- Separate fixtures for UI (`page`) and `api_request_context`) testing
-- Modular test organization
-- Demonstrates Playwright's unified testing capabilities
+GitHub Actions automatically runs all tests on every push. View the [workflow file](.github/workflows/tests.yml) for configuration details.
