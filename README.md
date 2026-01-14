@@ -62,6 +62,15 @@ pytest tests/api/
 - **test_get_single_post.py**: Validates single resource retrieval
 - **test_create_post.py**: Validates POST request and response structure
 
+### Integration Test
+`tests/integration/test_transfer_e2e.py` - End-to-end test combining:
+- UI automation (Playwright browser interaction)
+- API validation (Flask transfer endpoint)
+- Database verification (balance updates via SQL)
+- Property-based validation (money conservation)
+
+Demonstrates full-stack testing: user interaction → API → database → verification
+
 ## Key Features
 
 - Separate fixtures for UI (`page`) and `api_request_context`) testing
